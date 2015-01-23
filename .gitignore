@@ -1,0 +1,9 @@
+/RUNNING_PID
+/logs/
+/project/*-shim.sbt
+/project/build.properties
+/project/project/
+/project/target/
+/target/
+/.idea/
+

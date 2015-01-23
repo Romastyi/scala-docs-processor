@@ -1,0 +1,1485 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<keywords>
+    <group name="common" title="Общие данные">
+        <word name="date" title="Дата (цифрами)"/>
+        <word name="time" title="Вермя"/>
+        <word name="day" title="Число"/>
+        <word name="month" title="Месяц (прописью)"/>
+        <word name="monthNum" title="Месяц (цифрами)"/>
+        <word name="year" title="Год"/>
+        <word name="documentNumber" title="Номер документа (порядковый)"/>
+        <word name="creditNumber" title="Номер приходника"/>
+        <word name="debitNumber" title="Номер расходника"/>
+        <word name="tur1Number" title="Номер Тур-1"/>
+        <word name="nationalCurrency" title="Национальная валюта"/>
+        <word name="nationalCrossUSD" title="Курс USD ЦБ"/>
+        <word name="nationalCrossEUR" title="Курс EUR ЦБ"/>
+    </group>
+    <group name="request" title="Заявка">
+        <word name="tourindexOrder" title="Номер заявки на TourIndex"/>
+        <word name="requestNumber" title="Номер заяки"/>
+        <word name="requestDate" title="Дата заявки"/>
+        <word name="requestStatus" title="Статус заявки"/>
+        <word name="country" title="Страна"/>
+        <word name="resort" title="Курорт"/>
+        <word name="roomSize" title="Размещение"/>
+        <word name="dining" title="Питание"/>
+        <word name="depDateFrom" title="Дата вылета, с"/>
+        <word name="depDateTo" title="Дата вылета, по"/>
+        <word name="arrDateFrom" title="Дата прилета, с"/>
+        <word name="arrDateTo" title="Дата прилета, по"/>
+        <word name="nightsFrom" title="Кол-во ночей, с"/>
+        <word name="nightsTo" title="Кол-во ночей, по"/>
+        <word name="visaIncluded" title="Включена виза"/>
+        <word name="transferIncluded" title="Включен трансфер"/>
+        <word name="transferRoute" title="Маршрут трансфера"/>
+        <word name="transferType" title="Тип трансфера"/>
+        <word name="aviaIncluded" title="Включен авиаперелет"/>
+        <word name="avia1TicketType" title="Билет &quot;туда&quot;, тип билета"/>
+        <word name="avia1TicketClass" title="Билет &quot;туда&quot;, класс билета"/>
+        <word name="avia1DepResort" title="Билет &quot;туда&quot;, город вылета"/>
+        <word name="avia1DepAirport" title="Билет &quot;туда&quot;, аэропорт вылета"/>
+        <word name="avia1ArrResort" title="Билет &quot;туда&quot;, город прилета"/>
+        <word name="avia1ArrAirport" title="Билет &quot;туда&quot;, аэропорт прилета"/>
+        <word name="avia2TicketType" title="Билет &quot;обратно&quot;, тип билета"/>
+        <word name="avia2TicketClass" title="Билет &quot;обратно&quot;, класс билета"/>
+        <word name="avia2DepResort" title="Билет &quot;обратно&quot;, город вылета"/>
+        <word name="avia2DepAirport" title="Билет &quot;обратно&quot;, аэропорт вылета"/>
+        <word name="avia2ArrResort" title="Билет &quot;обратно&quot;, город прилета"/>
+        <word name="avia2ArrAirport" title="Билет &quot;обратно&quot;, аэропорт прилета"/>
+        <word name="price" title="Стоимость тура"/>
+        <word name="currency" title="Валюта"/>
+        <word name="discount" title="Скидка"/>
+        <word name="finalCost" title="К оплате клиенту"/>
+        <word name="advertisement" title="Реклама"/>
+        <word name="comment" title="Дополнительная информация"/>
+        <group name="hotels" title="Отели" repeatable="yes">
+            <word name="name" title="Название"/>
+        </group>
+        <group name="tourists" title="Туристы" repeatable="yes">
+            <word name="surname" title="Фамилия"/>
+            <word name="name" title="Имя"/>
+            <word name="sex" title="Пол"/>
+            <word name="age" title="Возраст"/>
+            <word name="birthday" title="День рождения"/>
+            <word name="phonenumber" title="Телефон"/>
+            <word name="email" title="E-mail"/>
+            <word name="citizenship" title="Гражданство"/>
+            <word name="passportSeries" title="Серия паспорта"/>
+            <word name="passportNumber" title="Номер паспорта"/>
+            <word name="passportDate" title="Срок действия паспорта"/>
+            <word name="passportIssue" title="Кем выдан паспорт"/>
+        </group>
+        <group name="manager" title="Менеджер">
+            <word name="shortName" title="Ф.И.О."/>
+            <word name="shortNameInGenitive" title="Ф.И.О. в Род. падеже"/>
+            <word name="surname" title="Фамилия"/>
+            <word name="surnameTranslit" title="Фамилия (translit)"/>
+            <word name="name" title="Имя"/>
+            <word name="nameTranslit" title="Имя (translit)"/>
+            <word name="patronymic" title="Отчество"/>
+            <word name="login" title="Логин"/>
+            <word name="role" title="Роль"/>
+            <word name="workPhone" title="Рабочий телефон"/>
+            <word name="mobilePhone" title="Мобильный телефон"/>
+            <word name="icq" title="ICQ"/>
+            <word name="email" title="Адрес е-mail"/>
+        </group>
+        <group name="office" title="Офис">
+            <word name="name" title="Название"/>
+            <word name="license" title="Лицензия"/>
+            <word name="licenseDeliveryDate" title="Дата выдачи лицензии"/>
+            <word name="licenseExpiryDate" title="Дата окончания лицензии"/>
+            <word name="officeType" title="Тип офиса"/>
+            <word name="bossSurname" title="Фамилия ген. директора"/>
+            <word name="bossName" title="Имя ген. директора"/>
+            <word name="bossPatronymic" title="Отчество ген. директора"/>
+            <word name="bossInGenitive" title="Ф.И.О. ген. директора в Род. падеже"/>
+            <word name="contactPerson" title="Контактное лицо"/>
+            <word name="phoneNumber" title="Телефон"/>
+            <word name="fax" title="Факс"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="mainCurrency" title="Главная валюта офиса"/>
+            <word name="exchangeType" title="Тип курса"/>
+            <word name="exchangeRateUSD" title="Курс USD"/>
+            <word name="exchangeRateEUR" title="Курс EUR"/>
+            <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+                <word name="legalName" title="Юридическое название"/>
+                <word name="legalAddress" title="Юридический адрес"/>
+                <word name="actualAddress" title="Фактический адрес"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="bic" title="Банковский идентификационный код (БИК)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+            </group>
+        </group>
+        <group name="partner" title="Контрагент">
+            <word name="name" title="Название"/>
+            <word name="agreement" title="Договор с нами"/>
+            <word name="agreementDate" title="Дата заключения договора"/>
+            <word name="agreementExpiryDate" title="Дата истечения договора"/>
+            <word name="commission" title="Комиссия"/>
+            <word name="commissionType" title="Тип комиссии"/>
+            <word name="exchangeType" title="Тип курса"/>
+            <word name="exchangeRateUSD" title="Курс USD"/>
+            <word name="exchangeRateEUR" title="Курс EUR"/>
+            <word name="license" title="Лицензия"/>
+            <word name="licenseDate" title="Дата выдачи лицензии"/>
+            <word name="licenseExpiryDate" title="Дата истечения лицензии"/>
+            <word name="registerNumber" title="Номер в реестре"/>
+            <word name="finProvision" title="Фин. обеспечение"/>
+            <word name="warOrganization" title="Гарантирующая организация"/>
+            <word name="bankGuarantee" title="Банковская гарантия"/>
+            <word name="bankGuaranteeExpiryDate" title="Дата истечения банковская гарантии"/>
+            <word name="insArgreement" title="Договор страхования"/>
+            <word name="bossShortedName" title="Ф.И.О. директора"/>
+            <word name="bossSurname" title="Фамилия директора"/>
+            <word name="bossName" title="Имя директора"/>
+            <word name="bossPatronymic" title="Отчество директора"/>
+            <word name="bossNameInGenitive" title="Ф.И.О. директора в Род. падеже"/>
+            <word name="contactPerson" title="Контактное лицо"/>
+            <word name="phone" title="Телефон"/>
+            <word name="fax" title="Факс"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="comment" title="Примечание"/>
+            <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+                <word name="legalName" title="Юридическое название"/>
+                <word name="legalAddress" title="Юридический адрес"/>
+                <word name="actualAddress" title="Фактический адрес"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+            </group>
+        </group>
+    </group>
+    <group name="deal" title="Сделка (общие данные)">
+        <word name="date" title="Дата (цифрами)"/>
+        <word name="day" title="Число"/>
+        <word name="month" title="Месяц (прописью)"/>
+        <word name="monthNum" title="Месяц (цифрами)"/>
+        <word name="year" title="Год"/>
+        <word name="number" title="Номер"/>
+        <word name="status" title="Статус"/>
+        <word name="advertisement" title="Реклама"/>
+        <word name="contractNumber" title="Номер конечного договора"/>
+        <word name="comment" title="Комментарий"/>
+        <word name="clientRank" title="Оценка клиента"/>
+        <word name="clientComment" title="Отзыв клиента"/>
+        <group name="cost" title="Оплата сделки">
+            <word name="value" title="Стоимость цифрами"/>
+            <word name="value_in_words" title="Стоимость прописью"/>
+            <word name="profit" title="Прибыль цифрами"/>
+            <word name="profit_in_words" title="Прибыль прописью"/>
+            <word name="paid" title="Оплачено цифрами"/>
+            <word name="paid_in_words" title="Оплачено цифрами"/>
+            <word name="debt" title="Долг цифрами"/>
+            <word name="debt_in_words" title="Долг цифрами"/>
+            <word name="currency" title="Валюта"/>
+            <word name="usdRate" title="Курс USD"/>
+            <word name="eurRate" title="Курс EUR"/>
+            <group name="payments" title="Платежи" repeatable="yes">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+        </group>
+        <group name="buyer" title="Покупатель">
+            <word name="shortedName" title="Ф.И.О. клиента"/>
+            <word name="category" title="Категория"/>
+            <word name="clientType" title="Тип клиента"/>
+            <word name="comment" title="Дополнительная информация"/>
+            <group name="phyPerson" title="Физическое лицо">
+                <word name="surname" title="Фамилия"/>
+                <word name="surnameTranslit" title="Фамилия (translit)"/>
+                <word name="name" title="Имя"/>
+                <word name="nameTranslit" title="Имя (translit)"/>
+                <word name="patronymic" title="Отчество"/>
+                <word name="sex" title="Пол"/>
+                <word name="birthday" title="Дата рождения"/>
+                <word name="fullYear" title="Полных лет (возраст)"/>
+                <word name="birthplace" title="Место рождения"/>
+                <word name="birthplaceTranslit" title="Место рождения (translit)"/>
+                <word name="workAddress" title="Место работы"/>
+                <word name="homeAddress" title="Домашний адрес"/>
+                <word name="workPhone" title="Рабочий телефон"/>
+                <word name="mobilePhone" title="Мобильный телефон"/>
+                <word name="homePhone" title="Домашний телефон"/>
+                <word name="email" title="Адрес e-mail"/>
+                <word name="website" title="Сайт"/>
+                <word name="icq" title="ICQ"/>
+                <word name="citizenship" title="Гражданство"/>
+                <word name="natPassSeries" title="Серия нац. паспорта"/>
+                <word name="natPassNumber" title="Номер нац. паспорта"/>
+                <word name="natPassInfo" title="Кем выдан нац. паспорт"/>
+                <word name="natPassDelDate" title="Когда выдан нац. паспорт"/>
+                <word name="natPassExpDate" title="Окончание срока действия нац. паспорта"/>
+                <word name="forPassSeries" title="Серия загран. паспорта"/>
+                <word name="forPassNumber" title="Номер загран. паспорта"/>
+                <word name="forPassInfo" title="Кем выдан загран. паспорт"/>
+                <word name="forPassDelDate" title="Когда выдан загран. паспорт"/>
+                <word name="forPassExpDate" title="Окончание срока действия загран. паспорта"/>
+            </group>
+            <group name="jurPerson" title="Юридическое лицо">
+                <word name="name" title="Название"/>
+                <word name="address" title="Адрес"/>
+                <word name="email" title="Адрес e-mail"/>
+                <word name="website" title="Сайт"/>
+                <word name="phoneNumber" title="Телефон"/>
+                <word name="fax" title="Факс"/>
+                <word name="bossName" title="Руководитель"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+            </group>
+        </group>
+        <group name="tourists" title="Туристы" repeatable="yes">
+            <word name="shortedName" title="Ф.И.О. клиента"/>
+            <word name="category" title="Категория"/>
+            <word name="clientType" title="Тип клиента"/>
+            <word name="comment" title="Дополнительная информация"/>
+            <group name="phyPerson" title="Физическое лицо" repeatable="no">
+                <word name="surname" title="Фамилия"/>
+                <word name="surnameTranslit" title="Фамилия (translit)"/>
+                <word name="name" title="Имя"/>
+                <word name="nameTranslit" title="Имя (translit)"/>
+                <word name="patronymic" title="Отчество"/>
+                <word name="sex" title="Пол"/>
+                <word name="birthday" title="Дата рождения"/>
+                <word name="fullYear" title="Полных лет (возраст)"/>
+                <word name="birthplace" title="Место рождения"/>
+                <word name="birthplaceTranslit" title="Место рождения (translit)"/>
+                <word name="workAddress" title="Место работы"/>
+                <word name="homeAddress" title="Домашний адрес"/>
+                <word name="workPhone" title="Рабочий телефон"/>
+                <word name="mobilePhone" title="Мобильный телефон"/>
+                <word name="homePhone" title="Домашний телефон"/>
+                <word name="email" title="Адрес e-mail"/>
+                <word name="website" title="Сайт"/>
+                <word name="icq" title="ICQ"/>
+                <word name="citizenship" title="Гражданство"/>
+                <word name="natPassSeries" title="Серия нац. паспорта"/>
+                <word name="natPassNumber" title="Номер нац. паспорта"/>
+                <word name="natPassInfo" title="Кем выдан нац. паспорт"/>
+                <word name="natPassDelDate" title="Когда выдан нац. паспорт"/>
+                <word name="natPassExpDate" title="Окончание срока действия нац. паспорта"/>
+                <word name="forPassSeries" title="Серия загран. паспорта"/>
+                <word name="forPassNumber" title="Номер загран. паспорта"/>
+                <word name="forPassInfo" title="Кем выдан загран. паспорт"/>
+                <word name="forPassDelDate" title="Когда выдан загран. паспорт"/>
+                <word name="forPassExpDate" title="Окончание срока действия загран. паспорта"/>
+            </group>
+            <group name="jurPerson" title="Юридическое лицо" repeatable="no">
+                <word name="name" title="Название"/>
+                <word name="address" title="Адрес"/>
+                <word name="email" title="Адрес e-mail"/>
+                <word name="website" title="Сайт"/>
+                <word name="phoneNumber" title="Телефон"/>
+                <word name="fax" title="Факс"/>
+                <word name="bossName" title="Руководитель"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+            </group>
+        </group>
+        <group name="manager" title="Менеджер">
+            <word name="shortName" title="Ф.И.О."/>
+            <word name="shortNameInGenitive" title="Ф.И.О. в Род. падеже"/>
+            <word name="surname" title="Фамилия"/>
+            <word name="surnameTranslit" title="Фамилия (translit)"/>
+            <word name="name" title="Имя"/>
+            <word name="nameTranslit" title="Имя (translit)"/>
+            <word name="patronymic" title="Отчество"/>
+            <word name="login" title="Логин"/>
+            <word name="role" title="Роль"/>
+            <word name="workPhone" title="Рабочий телефон"/>
+            <word name="mobilePhone" title="Мобильный телефон"/>
+            <word name="icq" title="ICQ"/>
+            <word name="email" title="Адрес е-mail"/>
+        </group>
+        <group name="office" title="Офис">
+            <word name="name" title="Название"/>
+            <word name="license" title="Лицензия"/>
+            <word name="licenseDeliveryDate" title="Дата выдачи лицензии"/>
+            <word name="licenseExpiryDate" title="Дата окончания лицензии"/>
+            <word name="officeType" title="Тип офиса"/>
+            <word name="bossSurname" title="Фамилия ген. директора"/>
+            <word name="bossName" title="Имя ген. директора"/>
+            <word name="bossPatronymic" title="Отчество ген. директора"/>
+            <word name="bossInGenitive" title="Ф.И.О. ген. директора в Род. падеже"/>
+            <word name="contactPerson" title="Контактное лицо"/>
+            <word name="phoneNumber" title="Телефон"/>
+            <word name="fax" title="Факс"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="mainCurrency" title="Главная валюта офиса"/>
+            <word name="exchangeType" title="Тип курса"/>
+            <word name="exchangeRateUSD" title="Курс USD"/>
+            <word name="exchangeRateEUR" title="Курс EUR"/>
+            <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+                <word name="legalName" title="Юридическое название"/>
+                <word name="legalAddress" title="Юридический адрес"/>
+                <word name="actualAddress" title="Фактический адрес"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="bic" title="Банковский идентификационный код (БИК)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+            </group>
+        </group>
+    </group>
+    <group name="service" title="Услуга (общие данные)" repeatable="yes">
+        <word name="serviceType" title="Тип услуги"/>
+        <word name="tourIndexNumber" title="Номер заявки в TourIndex"/>
+        <word name="reservNumber" title="Номер брони"/>
+        <word name="status" title="Статус"/>
+        <word name="documentStatus" title="Статус документов"/>
+        <word name="dateBegin" title="Дата начала"/>
+        <word name="dateEnd" title="Дата окончания"/>
+        <word name="nightsQuantity" title="Кол-во ночей"/>
+        <word name="daysQuantity" title="Кол-во дней"/>
+        <word name="depCountry" title="Страна отправления"/>
+        <word name="arrCountry" title="Страна назначения"/>
+        <word name="profit" title="Прибыль цифрами"/>
+        <word name="profit_in_words" title="Прибыль прописью"/>
+        <group name="clientCost" title="Оплата клиентом" repeatable="no">
+            <word name="value" title="Стоимость цифрами"/>
+            <word name="value_in_words" title="Стоимость прописью"/>
+            <word name="fullPrice" title="Полная стоимость цифрами"/>
+            <word name="fullPrice_in_words" title="Полная стоимость прописью"/>
+            <word name="paid" title="Оплачено цифрами"/>
+            <word name="paid_in_words" title="Оплачено прописью"/>
+            <word name="debt" title="Долг цифрами"/>
+            <word name="debt_in_words" title="Долг прописью"/>
+            <word name="currency" title="Валюта"/>
+            <word name="usdRate" title="Курс USD"/>
+            <word name="eurRate" title="Курс EUR"/>
+            <word name="limitDate" title="Крайняя дата оплаты"/>
+            <word name="lastDate" title="Дата последней оплаты"/>
+            <word name="comment" title="Примечание"/>
+            <group name="payments" title="Платежи" repeatable="yes">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="repayment" title="Возврат"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+        </group>
+        <group name="partnerCost" title="Оплата контрагентом" repeatable="no">
+            <word name="value" title="Стоимость цифрами"/>
+            <word name="value_in_words" title="Стоимость прописью"/>
+            <word name="fullPrice" title="Полная стоимость цифрами"/>
+            <word name="fullPrice_in_words" title="Полная стоимость прописью"/>
+            <word name="paid" title="Оплачено цифрами"/>
+            <word name="paid_in_words" title="Оплачено прописью"/>
+            <word name="debt" title="Долг цифрами"/>
+            <word name="debt_in_words" title="Долг прописью"/>
+            <word name="currency" title="Валюта"/>
+            <word name="usdRate" title="Курс USD"/>
+            <word name="eurRate" title="Курс EUR"/>
+            <word name="commission" title="Комиссия"/>
+            <word name="commissionType" title="Тип комиссии"/>
+            <word name="limitDate" title="Крайняя дата оплаты"/>
+            <word name="lastDate" title="Дата последней оплаты"/>
+            <word name="comment" title="Примечание"/>
+            <group name="payments" title="Платежи" repeatable="yes">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="repayment" title="Возврат"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+        </group>
+        <group name="otherPayments" title="Дополнительные платежи" repeatable="no">
+            <word name="paid" title="Сумма цифрами"/>
+            <word name="paid_in_words" title="Сумма прописью"/>
+            <word name="currency" title="Валюта"/>
+            <word name="usdRate" title="Курс USD"/>
+            <word name="eurRate" title="Курс EUR"/>
+            <group name="payments" title="Платежи" repeatable="yes">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="airportPay" title="Аэропортовый сбор">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="fuelPay" title="Топливный сбор">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="visaPay" title="Доплата за визу">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="insurancePay" title="Страхование от невыезда">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="transferPay" title="Доплата за трансфер">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="exchangePay" title="Курсовая разница">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+            <group name="paperworkPay" title="Доплата за оформление">
+                <word name="value" title="Сумма платежа цифрами"/>
+                <word name="value_in_words" title="Сумма платежа прописью"/>
+                <word name="currency" title="Валюта платежа"/>
+                <word name="date" title="Дата платежа"/>
+                <word name="usdRate" title="Курс USD"/>
+                <word name="eurRate" title="Курс EUR"/>
+                <word name="form" title="Тип расчета"/>
+                <word name="kind" title="Вид платежа"/>
+                <word name="comment" title="Примечание"/>
+                <group name="payer" title="Плательщик" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+                <group name="recipient" title="Получатель" repeatable="no">
+                    <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+                    <word name="payerType" title="Тип плательщика"/>
+                    <group name="client" title="Клиент">
+                        <word name="shortedName" title="Ф.И.О. клиента"/>
+                        <word name="surname" title="Фамилия"/>
+                        <word name="name" title="Имя"/>
+                        <word name="patronymic" title="Отчество"/>
+                    </group>
+                    <group name="juridical" title="Юридическое лицо">
+                        <word name="legalName" title="Юридическое название"/>
+                        <word name="legalAddress" title="Юридический адрес"/>
+                        <word name="actualAddress" title="Фактический адрес"/>
+                        <word name="bank" title="Банк"/>
+                        <word name="inn" title="ИНН"/>
+                        <word name="transactAccount" title="Расчетный счет"/>
+                        <word name="correspAccount" title="Корреспондентский счет"/>
+                        <word name="bic" title="БИК"/>
+                    </group>
+                </group>
+            </group>
+        </group>
+        <group name="partner" title="Контрагент" repeatable="no">
+            <word name="name" title="Название"/>
+            <word name="agreement" title="Договор с нами"/>
+            <word name="agreementDate" title="Дата заключения договора"/>
+            <word name="agreementExpiryDate" title="Дата истечения договора"/>
+            <word name="commission" title="Комиссия"/>
+            <word name="commissionType" title="Тип комиссии"/>
+            <word name="exchangeType" title="Тип курса"/>
+            <word name="exchangeRateUSD" title="Курс USD"/>
+            <word name="exchangeRateEUR" title="Курс EUR"/>
+            <word name="license" title="Лицензия"/>
+            <word name="licenseDate" title="Дата выдачи лицензии"/>
+            <word name="licenseExpiryDate" title="Дата истечения лицензии"/>
+            <word name="registerNumber" title="Номер в реестре"/>
+            <word name="finProvision" title="Фин. обеспечение"/>
+            <word name="warOrganization" title="Гарантирующая организация"/>
+            <word name="bankGuarantee" title="Банковская гарантия"/>
+            <word name="bankGuaranteeExpiryDate" title="Дата истечения банковская гарантии"/>
+            <word name="insArgreement" title="Договор страхования"/>
+            <word name="bossShortedName" title="Ф.И.О. директора"/>
+            <word name="bossSurname" title="Фамилия директора"/>
+            <word name="bossName" title="Имя директора"/>
+            <word name="bossPatronymic" title="Отчество директора"/>
+            <word name="bossNameInGenitive" title="Ф.И.О. директора в Род. падеже"/>
+            <word name="contactPerson" title="Контактное лицо"/>
+            <word name="phone" title="Телефон"/>
+            <word name="fax" title="Факс"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="comment" title="Примечание"/>
+            <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+                <word name="legalName" title="Юридическое название"/>
+                <word name="legalAddress" title="Юридический адрес"/>
+                <word name="actualAddress" title="Фактический адрес"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+            </group>
+        </group>
+        <group name="tourists" title="Туристы" repeatable="yes">
+            <word name="shortedName" title="Ф.И.О. клиента"/>
+            <word name="category" title="Категория"/>
+            <word name="clientType" title="Тип клиента"/>
+            <word name="comment" title="Дополнительная информация"/>
+            <group name="phyPerson" title="Физическое лицо" repeatable="no">
+                <word name="surname" title="Фамилия"/>
+                <word name="surnameTranslit" title="Фамилия (translit)"/>
+                <word name="name" title="Имя"/>
+                <word name="nameTranslit" title="Имя (translit)"/>
+                <word name="patronymic" title="Отчество"/>
+                <word name="sex" title="Пол"/>
+                <word name="birthday" title="Дата рождения"/>
+                <word name="fullYear" title="Полных лет (возраст)"/>
+                <word name="birthplace" title="Место рождения"/>
+                <word name="birthplaceTranslit" title="Место рождения (translit)"/>
+                <word name="workAddress" title="Место работы"/>
+                <word name="homeAddress" title="Домашний адрес"/>
+                <word name="workPhone" title="Рабочий телефон"/>
+                <word name="mobilePhone" title="Мобильный телефон"/>
+                <word name="homePhone" title="Домашний телефон"/>
+                <word name="email" title="Адрес e-mail"/>
+                <word name="website" title="Сайт"/>
+                <word name="icq" title="ICQ"/>
+                <word name="citizenship" title="Гражданство"/>
+                <word name="natPassSeries" title="Серия нац. паспорта"/>
+                <word name="natPassNumber" title="Номер нац. паспорта"/>
+                <word name="natPassInfo" title="Кем выдан нац. паспорт"/>
+                <word name="natPassDelDate" title="Когда выдан нац. паспорт"/>
+                <word name="natPassExpDate" title="Окончание срока действия нац. паспорта"/>
+                <word name="forPassSeries" title="Серия загран. паспорта"/>
+                <word name="forPassNumber" title="Номер загран. паспорта"/>
+                <word name="forPassInfo" title="Кем выдан загран. паспорт"/>
+                <word name="forPassDelDate" title="Когда выдан загран. паспорт"/>
+                <word name="forPassExpDate" title="Окончание срока действия загран. паспорта"/>
+            </group>
+            <group name="jurPerson" title="Юридическое лицо" repeatable="no">
+                <word name="name" title="Название"/>
+                <word name="address" title="Адрес"/>
+                <word name="email" title="Адрес e-mail"/>
+                <word name="website" title="Сайт"/>
+                <word name="phoneNumber" title="Телефон"/>
+                <word name="fax" title="Факс"/>
+                <word name="bossName" title="Руководитель"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+                <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+                <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+            </group>
+        </group>
+        <group name="serviceTour" title="Пакетный тур" repeatable="yes">
+            <word name="spo" title="СПО"/>
+            <word name="dateBegin" title="Дата начала"/>
+            <word name="dateEnd" title="Дата окончания"/>
+            <word name="nightsQuantity" title="Кол-во ночей"/>
+            <word name="depCountry" title="Страна отправления"/>
+            <word name="depResort" title="Город отправления"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+        </group>
+        <group name="serviceHotel" title="Отель" repeatable="yes">
+            <word name="hotelName" title="Название отеля"/>
+            <word name="country" title="Страна"/>
+            <word name="resort" title="Курорт"/>
+            <word name="roomsQuantity" title="Кол-во номеров"/>
+            <word name="roomType" title="Тип номера"/>
+            <word name="roomSize" title="Размещение"/>
+            <word name="dinning" title="Питание"/>
+            <word name="dateBegin" title="Дата начала"/>
+            <word name="dateEnd" title="Дата окончания"/>
+            <word name="nightsQuantity" title="Кол-во ночей"/>
+        </group>
+        <group name="serviceAvia" title="Авиабилет" repeatable="yes">
+            <word name="depCountry" title="Страна вылета"/>
+            <word name="depResort" title="Город вылета"/>
+            <word name="depAirport" title="Аэропорт вылета"/>
+            <word name="depDate" title="Дата вылета"/>
+            <word name="depTime" title="Время вылета"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+            <word name="arrAirport" title="Аэропорт прибытия"/>
+            <word name="arrDate" title="Дата прибытия"/>
+            <word name="arrTime" title="Время прибытия"/>
+            <word name="airline" title="Авиакомпания"/>
+            <word name="flightNumber" title="Номер рейса"/>
+            <word name="planeType" title="Тип судна"/>
+            <word name="ticketClass" title="Класс билета"/>
+            <word name="ticketType" title="Тип билета"/>
+        </group>
+        <group name="serviceAviaTo" title="Авиабилет (туда)">
+            <word name="depCountry" title="Страна вылета"/>
+            <word name="depResort" title="Город вылета"/>
+            <word name="depAirport" title="Аэропорт вылета"/>
+            <word name="depDate" title="Дата вылета"/>
+            <word name="depTime" title="Время вылета"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+            <word name="arrAirport" title="Аэропорт прибытия"/>
+            <word name="arrDate" title="Дата прибытия"/>
+            <word name="arrTime" title="Время прибытия"/>
+            <word name="airline" title="Авиакомпания"/>
+            <word name="flightNumber" title="Номер рейса"/>
+            <word name="planeType" title="Тип судна"/>
+            <word name="ticketClass" title="Класс билета"/>
+            <word name="ticketType" title="Тип билета"/>
+        </group>
+        <group name="serviceAviaBack" title="Авиабилет (обратно)">
+            <word name="depCountry" title="Страна вылета"/>
+            <word name="depResort" title="Город вылета"/>
+            <word name="depAirport" title="Аэропорт вылета"/>
+            <word name="depDate" title="Дата вылета"/>
+            <word name="depTime" title="Время вылета"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+            <word name="arrAirport" title="Аэропорт прибытия"/>
+            <word name="arrDate" title="Дата прибытия"/>
+            <word name="arrTime" title="Время прибытия"/>
+            <word name="airline" title="Авиакомпания"/>
+            <word name="flightNumber" title="Номер рейса"/>
+            <word name="planeType" title="Тип судна"/>
+            <word name="ticketClass" title="Класс билета"/>
+            <word name="ticketType" title="Тип билета"/>
+        </group>
+        <group name="serviceRail" title="Ж/д билет" repeatable="yes">
+            <word name="depCountry" title="Страна отправления"/>
+            <word name="depResort" title="Город отправления"/>
+            <word name="depDate" title="Дата отправления"/>
+            <word name="depTime" title="Время отправления"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+            <word name="arrDate" title="Дата прибытия"/>
+            <word name="arrTime" title="Время прибытия"/>
+            <word name="railwayCompany" title="Ж/д компания"/>
+            <word name="trainNumber" title="Номер поезда"/>
+            <word name="ticketClass" title="Класс билета"/>
+            <word name="ticketType" title="Тип билета"/>
+        </group>
+        <group name="serviceRailTo" title="Ж/д билет (туда)">
+            <word name="depCountry" title="Страна отправления"/>
+            <word name="depResort" title="Город отправления"/>
+            <word name="depDate" title="Дата отправления"/>
+            <word name="depTime" title="Время отправления"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+            <word name="arrDate" title="Дата прибытия"/>
+            <word name="arrTime" title="Время прибытия"/>
+            <word name="railwayCompany" title="Ж/д компания"/>
+            <word name="trainNumber" title="Номер поезда"/>
+            <word name="ticketClass" title="Класс билета"/>
+            <word name="ticketType" title="Тип билета"/>
+        </group>
+        <group name="serviceRailBack" title="Ж/д билет (обратно)">
+            <word name="depCountry" title="Страна отправления"/>
+            <word name="depResort" title="Город отправления"/>
+            <word name="depDate" title="Дата отправления"/>
+            <word name="depTime" title="Время отправления"/>
+            <word name="arrCountry" title="Страна прибытия"/>
+            <word name="arrResort" title="Город прибытия"/>
+            <word name="arrDate" title="Дата прибытия"/>
+            <word name="arrTime" title="Время прибытия"/>
+            <word name="railwayCompany" title="Ж/д компания"/>
+            <word name="trainNumber" title="Номер поезда"/>
+            <word name="ticketClass" title="Класс билета"/>
+            <word name="ticketType" title="Тип билета"/>
+        </group>
+        <group name="serviceVisa" title="Виза" repeatable="yes">
+            <word name="country" title="Страна"/>
+            <word name="visaType" title="Тип визы"/>
+            <word name="frequencyRate" title="Кратность визы"/>
+            <word name="duration" title="Длительность, коридор"/>
+            <word name="dateBegin" title="Дата начала"/>
+            <word name="dateEnd" title="Дата окончания"/>
+        </group>
+        <group name="servicePassport" title="Загран.паспорт" repeatable="yes">
+            <word name="passportType" title="Тип паспорта"/>
+            <word name="toDate" title="Дата готовности"/>
+        </group>
+        <group name="serviceInsurance" title="Страховка" repeatable="yes">
+            <word name="country" title="Страна"/>
+            <word name="insuranceType" title="Тип страховки"/>
+            <word name="insuranceCompany" title="Страховая компания"/>
+            <word name="dateBegin" title="Дата начала"/>
+            <word name="dateEnd" title="Дата окончания"/>
+            <word name="daysQuantity" title="Кол-во дней"/>
+        </group>
+        <group name="serviceTransfer" title="Трансфер" repeatable="yes">
+            <word name="country" title="Страна"/>
+            <word name="resort" title="Курорт"/>
+            <word name="transferType" title="Тип трансфера"/>
+            <word name="transferRoute" title="Маршрут трансфера"/>
+            <word name="transportType" title="Тип транспорта"/>
+            <word name="toDate" title="Дата"/>
+        </group>
+        <group name="serviceExcursion" title="Экскурсия" repeatable="yes">
+            <word name="title" title="Название экскурсии"/>
+            <word name="country" title="Страна"/>
+            <word name="resort" title="Курорт"/>
+            <word name="place" title="Место отправления"/>
+            <word name="toDate" title="Дата отправления"/>
+            <word name="toTime" title="Время отправления"/>
+        </group>
+        <group name="serviceAdditional" title="Дополнительная услуга" repeatable="yes">
+            <word name="title" title="Название услуги"/>
+            <word name="description" title="Описание услуги"/>
+            <word name="country" title="Страна"/>
+            <word name="resort" title="Курорт"/>
+            <word name="toDate" title="Дата"/>
+            <word name="toTime" title="Время"/>
+            <word name="quantity" title="Количество"/>
+        </group>
+    </group>
+    <group name="payment" title="Платеж">
+        <word name="value" title="Сумма платежа цифрами"/>
+        <word name="value_in_words" title="Сумма платежа прописью"/>
+        <word name="currency" title="Валюта платежа"/>
+        <word name="date" title="Дата платежа"/>
+        <word name="usdRate" title="Курс USD"/>
+        <word name="eurRate" title="Курс EUR"/>
+        <word name="form" title="Тип расчета"/>
+        <word name="kind" title="Вид платежа (для дополнительных платежей)"/>
+        <word name="repayment" title="Возврат"/>
+        <word name="comment" title="Примечание"/>
+        <group name="payer" title="Плательщик">
+            <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+            <word name="payerType" title="Тип плательщика"/>
+            <group name="client" title="Клиент">
+                <word name="shortedName" title="Ф.И.О. клиента"/>
+                <word name="surname" title="Фамилия"/>
+                <word name="name" title="Имя"/>
+                <word name="patronymic" title="Отчество"/>
+            </group>
+            <group name="juridical" title="Юридическое лицо">
+                <word name="legalName" title="Юридическое название"/>
+                <word name="legalAddress" title="Юридический адрес"/>
+                <word name="actualAddress" title="Фактический адрес"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="ИНН"/>
+                <word name="transactAccount" title="Расчетный счет"/>
+                <word name="correspAccount" title="Корреспондентский счет"/>
+                <word name="bic" title="БИК"/>
+            </group>
+        </group>
+        <group name="recipient" title="Получатель">
+            <word name="shortedName" title="Ф.И.О. клиента/Название юр.лица"/>
+            <word name="payerType" title="Тип плательщика"/>
+            <group name="client" title="Клиент">
+                <word name="shortedName" title="Ф.И.О. клиента"/>
+                <word name="surname" title="Фамилия"/>
+                <word name="name" title="Имя"/>
+                <word name="patronymic" title="Отчество"/>
+            </group>
+            <group name="juridical" title="Юридическое лицо">
+                <word name="legalName" title="Юридическое название"/>
+                <word name="legalAddress" title="Юридический адрес"/>
+                <word name="actualAddress" title="Фактический адрес"/>
+                <word name="bank" title="Банк"/>
+                <word name="inn" title="ИНН"/>
+                <word name="transactAccount" title="Расчетный счет"/>
+                <word name="correspAccount" title="Корреспондентский счет"/>
+                <word name="bic" title="БИК"/>
+            </group>
+        </group>
+    </group>
+    <group name="currentUser" title="Текущий пользователь">
+        <word name="shortName" title="Ф.И.О."/>
+        <word name="shortNameInGenitive" title="Ф.И.О. в Род. падеже"/>
+        <word name="surname" title="Фамилия"/>
+        <word name="surnameTranslit" title="Фамилия (translit)"/>
+        <word name="name" title="Имя"/>
+        <word name="nameTranslit" title="Имя (translit)"/>
+        <word name="patronymic" title="Отчество"/>
+        <word name="login" title="Логин"/>
+        <word name="role" title="Роль"/>
+        <word name="workPhone" title="Рабочий телефон"/>
+        <word name="mobilePhone" title="Мобильный телефон"/>
+        <word name="icq" title="ICQ"/>
+        <word name="email" title="Адрес е-mail"/>
+    </group>
+    <group name="currentOffice" title="Текущий офис">
+        <word name="name" title="Название"/>
+        <word name="license" title="Лицензия"/>
+        <word name="licenseDeliveryDate" title="Дата выдачи лицензии"/>
+        <word name="licenseExpiryDate" title="Дата окончания лицензии"/>
+        <word name="officeType" title="Тип офиса"/>
+        <word name="bossSurname" title="Фамилия ген. директора"/>
+        <word name="bossName" title="Имя ген. директора"/>
+        <word name="bossPatronymic" title="Отчество ген. директора"/>
+        <word name="bossInGenitive" title="Ф.И.О. ген. директора в Род. падеже"/>
+        <word name="contactPerson" title="Контактное лицо"/>
+        <word name="phoneNumber" title="Телефон"/>
+        <word name="fax" title="Факс"/>
+        <word name="email" title="Адрес e-mail"/>
+        <word name="website" title="Сайт"/>
+        <word name="mainCurrency" title="Главная валюта офиса"/>
+        <word name="exchangeType" title="Тип курса"/>
+        <word name="exchangeRateUSD" title="Курс USD"/>
+        <word name="exchangeRateEUR" title="Курс EUR"/>
+        <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+            <word name="legalName" title="Юридическое название"/>
+            <word name="legalAddress" title="Юридический адрес"/>
+            <word name="actualAddress" title="Фактический адрес"/>
+            <word name="bank" title="Банк"/>
+            <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+            <word name="bic" title="Банковский идентификационный код (БИК)"/>
+            <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+            <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+        </group>
+    </group>
+    <group name="generalOffice" title="Главный офис">
+        <word name="name" title="Название"/>
+        <word name="license" title="Лицензия"/>
+        <word name="licenseDeliveryDate" title="Дата выдачи лицензии"/>
+        <word name="licenseExpiryDate" title="Дата окончания лицензии"/>
+        <word name="officeType" title="Тип офиса"/>
+        <word name="bossSurname" title="Фамилия ген. директора"/>
+        <word name="bossName" title="Имя ген. директора"/>
+        <word name="bossPatronymic" title="Отчество ген. директора"/>
+        <word name="bossInGenitive" title="Ф.И.О. ген. директора в Род. падеже"/>
+        <word name="contactPerson" title="Контактное лицо"/>
+        <word name="phoneNumber" title="Телефон"/>
+        <word name="fax" title="Факс"/>
+        <word name="email" title="Адрес e-mail"/>
+        <word name="website" title="Сайт"/>
+        <word name="mainCurrency" title="Главная валюта офиса"/>
+        <word name="exchangeType" title="Тип курса"/>
+        <word name="exchangeRateUSD" title="Курс USD"/>
+        <word name="exchangeRateEUR" title="Курс EUR"/>
+        <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+            <word name="legalName" title="Юридическое название"/>
+            <word name="legalAddress" title="Юридический адрес"/>
+            <word name="actualAddress" title="Фактический адрес"/>
+            <word name="bank" title="Банк"/>
+            <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+            <word name="bic" title="Банковский идентификационный код (БИК)"/>
+            <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+            <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+        </group>
+    </group>
+    <group name="client" title="Клиент">
+        <word name="shortedName" title="Ф.И.О. клиента"/>
+        <word name="category" title="Категория"/>
+        <word name="clientType" title="Тип клиента"/>
+        <word name="comment" title="Дополнительная информация"/>
+        <group name="phyPerson" title="Физическое лицо">
+            <word name="surname" title="Фамилия"/>
+            <word name="surnameTranslit" title="Фамилия (translit)"/>
+            <word name="name" title="Имя"/>
+            <word name="nameTranslit" title="Имя (translit)"/>
+            <word name="patronymic" title="Отчество"/>
+            <word name="sex" title="Пол"/>
+            <word name="birthday" title="Дата рождения"/>
+            <word name="fullYear" title="Полных лет (возраст)"/>
+            <word name="birthplace" title="Место рождения"/>
+            <word name="birthplaceTranslit" title="Место рождения (translit)"/>
+            <word name="workAddress" title="Место работы"/>
+            <word name="homeAddress" title="Домашний адрес"/>
+            <word name="workPhone" title="Рабочий телефон"/>
+            <word name="mobilePhone" title="Мобильный телефон"/>
+            <word name="homePhone" title="Домашний телефон"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="icq" title="ICQ"/>
+            <word name="citizenship" title="Гражданство"/>
+            <word name="natPassSeries" title="Серия нац. паспорта"/>
+            <word name="natPassNumber" title="Номер нац. паспорта"/>
+            <word name="natPassInfo" title="Кем выдан нац. паспорт"/>
+            <word name="natPassDelDate" title="Когда выдан нац. паспорт"/>
+            <word name="natPassExpDate" title="Окончание срока действия нац. паспорта"/>
+            <word name="forPassSeries" title="Серия загран. паспорта"/>
+            <word name="forPassNumber" title="Номер загран. паспорта"/>
+            <word name="forPassInfo" title="Кем выдан загран. паспорт"/>
+            <word name="forPassDelDate" title="Когда выдан загран. паспорт"/>
+            <word name="forPassExpDate" title="Окончание срока действия загран. паспорта"/>
+        </group>
+        <group name="jurPerson" title="Юридическое лицо">
+            <word name="name" title="Название"/>
+            <word name="address" title="Адрес"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="phoneNumber" title="Телефон"/>
+            <word name="fax" title="Факс"/>
+            <word name="bossName" title="Руководитель"/>
+            <word name="bank" title="Банк"/>
+            <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+            <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+            <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+        </group>
+    </group>
+    <group name="partner" title="Контрагент">
+        <word name="name" title="Название"/>
+        <word name="agreement" title="Договор с нами"/>
+        <word name="agreementDate" title="Дата заключения договора"/>
+        <word name="agreementExpiryDate" title="Дата истечения договора"/>
+        <word name="commission" title="Комиссия"/>
+        <word name="commissionType" title="Тип комиссии"/>
+        <word name="exchangeType" title="Тип курса"/>
+        <word name="exchangeRateUSD" title="Курс USD"/>
+        <word name="exchangeRateEUR" title="Курс EUR"/>
+        <word name="license" title="Лицензия"/>
+        <word name="licenseDate" title="Дата выдачи лицензии"/>
+        <word name="licenseExpiryDate" title="Дата истечения лицензии"/>
+        <word name="registerNumber" title="Номер в реестре"/>
+        <word name="finProvision" title="Фин. обеспечение"/>
+        <word name="warOrganization" title="Гарантирующая организация"/>
+        <word name="bankGuarantee" title="Банковская гарантия"/>
+        <word name="bankGuaranteeExpiryDate" title="Дата истечения банковская гарантии"/>
+        <word name="insArgreement" title="Договор страхования"/>
+        <word name="bossShortedName" title="Ф.И.О. директора"/>
+        <word name="bossSurname" title="Фамилия директора"/>
+        <word name="bossName" title="Имя директора"/>
+        <word name="bossPatronymic" title="Отчество директора"/>
+        <word name="bossNameInGenitive" title="Ф.И.О. директора в Род. падеже"/>
+        <word name="contactPerson" title="Контактное лицо"/>
+        <word name="phone" title="Телефон"/>
+        <word name="fax" title="Факс"/>
+        <word name="email" title="Адрес e-mail"/>
+        <word name="website" title="Сайт"/>
+        <word name="comment" title="Примечание"/>
+        <group name="requisites" title="Реквизиты/Юр. лица" repeatable="yes">
+            <word name="legalName" title="Юридическое название"/>
+            <word name="legalAddress" title="Юридический адрес"/>
+            <word name="actualAddress" title="Фактический адрес"/>
+            <word name="bank" title="Банк"/>
+            <word name="inn" title="Идентифик. номер налогоплательщика (ИНН)"/>
+            <word name="transactAccount" title="Расчетный счет (Р/с)"/>
+            <word name="correspAccount" title="Корреспондентский счет (К/с)"/>
+        </group>
+    </group>
+    <group name="offer" title="Данные избранного тура" repeatable="yes">
+        <word name="operator" title="Оператор"/>
+        <word name="price" title="Стоимость тура"/>
+        <word name="payment" title="Стоимость к оплате"/>
+        <word name="final_cost" title="Итоговая стоимость для клиента"/>
+        <word name="discount" title="Скидка клиенту"/>
+        <word name="currency" title="Валюта"/>
+        <word name="commission" title="Комиссия"/>
+        <word name="commissionType" title="Тип комиссии"/>
+        <word name="dateDeparture" title="Дата вылета"/>
+        <word name="dateArrival" title="Дата прилета"/>
+        <word name="duration" title="Длительность"/>
+        <word name="flight" title="Перелет"/>
+        <word name="city" title="Город вылета"/>
+        <word name="country" title="Страна назначения"/>
+        <word name="resort" title="Курорт"/>
+        <word name="hotel" title="Отель"/>
+        <word name="hotelUrl" title="Ссылка на подробности по отелю"/>
+        <word name="hotelСat" title="Категория (звездность) отеля"/>
+        <word name="meal" title="Питание"/>
+        <word name="roomType" title="Тип номера"/>
+        <word name="roomView" title="Вид из номера"/>
+        <word name="roomSize" title="Размещение"/>
+        <word name="roomSizeAdults" title="Размещение, кол-во взрослых"/>
+        <word name="roomSizeChildren" title="Размещение, кол-во детей"/>
+        <word name="urlDetails" title="Ссылка на страницу с подробностями"/>
+    </group>
+    <group name="email" title="E-mail рассылка">
+        <group name="common" title="Общие данные">
+            <word name="date" title="Дата отправки (цифрами)"/>
+            <word name="time" title="Время отправки (цифрами)"/>
+            <word name="day" title="Число отправки"/>
+            <word name="month" title="Месяц отправки (прописью)"/>
+            <word name="monthNum" title="Месяц отправки (цифрами)"/>
+            <word name="year" title="Год отправки"/>
+        </group>
+        <!--
+        <group name="sender" title="Отправитель">
+            <word name="" title=""/>
+        </group>
+        -->
+        <group name="recipient" title="Данные получателя">
+            <word name="shortedName" title="Ф.И.О./Название"/>
+            <word name="surname" title="Фамилия"/>
+            <word name="surnameTranslit" title="Фамилия (translit)"/>
+            <word name="name" title="Имя/Название"/>
+            <word name="nameTranslit" title="Имя (translit)"/>
+            <word name="patronymic" title="Отчество"/>
+            <word name="sex" title="Пол"/>
+            <word name="birthday" title="Дата рождения"/>
+            <word name="fullYear" title="Полных лет (возраст)"/>
+            <word name="address" title="Место работы"/>
+            <word name="phone" title="Телефон"/>
+            <word name="mobilePhone" title="Мобильный телефон"/>
+            <word name="homePhone" title="Домашний телефон"/>
+            <word name="email" title="Адрес e-mail"/>
+            <word name="website" title="Сайт"/>
+            <word name="icq" title="ICQ"/>
+            <word name="citizenship" title="Гражданство"/>
+            <word name="natPassSeries" title="Серия нац. паспорта"/>
+            <word name="natPassNumber" title="Номер нац. паспорта"/>
+            <word name="natPassInfo" title="Кем выдан нац. паспорт"/>
+            <word name="natPassDelDate" title="Когда выдан нац. паспорт"/>
+            <word name="natPassExpDate" title="Окончание срока действия нац. паспорта"/>
+            <word name="forPassSeries" title="Серия загран. паспорта"/>
+            <word name="forPassNumber" title="Номер загран. паспорта"/>
+            <word name="forPassInfo" title="Кем выдан загран. паспорт"/>
+            <word name="forPassDelDate" title="Когда выдан загран. паспорт"/>
+            <word name="forPassExpDate" title="Окончание срока действия загран. паспорта"/>
+        </group>
+    </group>
+</keywords>
