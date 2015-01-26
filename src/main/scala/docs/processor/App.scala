@@ -6,7 +6,7 @@ object App {
 
         val document = new TextDocument(
             "{client.name}, привет!\n\n" +
-            "Твой любимые товары:\n" +
+            "Твои любимые товары:\n" +
             "\t{client.good.name:row.number} ... {client.good.quantity} {client.good.dimension}\n" +
             "\nПока.\n" +
             "Твой на веки, {company.name}."
@@ -88,8 +88,8 @@ object App {
                 </good>
             </client>
 
-        import xmlEvaluator._
+        import XmlEvaluator._
 
-        document.evaluate(model)
+        println(document.evaluate(model).plainText)
     }
 }

@@ -27,7 +27,7 @@ import BindType._
 import Qualifier._
 import Statistics._
 
-case class Operation( text: String, item: OperationItem, var bind: Option[BindType] = None, var bindName: Option[String] = None )
+case class Operation( text: String, item: OperationItem, var bind: Option[BindType] = None, var bindName: String = "" )
 
 class ParsedQueue extends mutable.Queue[Operation]
 

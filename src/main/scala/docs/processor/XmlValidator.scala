@@ -62,7 +62,7 @@ case class XmlValidator( xml: Node ) extends Validator {
                             (n \ s"@$f").headOption match {
                                 case Some(obj: Node) =>
                                     o.bind = Some(k)
-                                    o.bindName = Some(obj.text)
+                                    o.bindName = obj.text
                                     break()
                                 case None => ;
                             }
