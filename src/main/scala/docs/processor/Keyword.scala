@@ -14,14 +14,20 @@ object OperationItem extends Enumeration {
     val KeywordItem, NumberItem, OperatorItem = Value
 }
 
+object BindType extends Enumeration {
+    type BindType = Value
+    val ModelBind, FieldBind = Value
+}
+
 import scala.collection.mutable
 
 import KeywordType._
 import OperationItem._
+import BindType._
 import Qualifier._
 import Statistics._
 
-case class Operation( text: String, item: OperationItem )
+case class Operation( text: String, item: OperationItem, var bind: Option[BindType] = None, var bindName: Option[String] = None )
 
 class ParsedQueue extends mutable.Queue[Operation]
 

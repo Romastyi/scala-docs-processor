@@ -217,6 +217,7 @@ object Parser {
                     que.enqueue(k.parsed: _*)
                     typ = k.t
                     fmt = k.format
+                    qlf = k.qual
                     stt = k.stat
                 } else {
                     if (k.t != Keyword)

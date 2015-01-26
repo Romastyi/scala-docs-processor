@@ -12,11 +12,7 @@ class ParserSpec extends FlatSpec with Matchers {
     "Parser" should "parse keyword (default syntax, custom validator)" in {
 
         implicit val syntax = new DefaultSyntax()
-        implicit object myValidator extends Validator {
-            override def validate( keyword: Keyword ): KeywordType = {
-                Unknown
-            }
-        }
+        implicit val myValidator = new DummyValidator()
 
 //        Parser.parseKeyword("")
     }

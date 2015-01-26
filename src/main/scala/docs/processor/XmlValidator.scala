@@ -6,6 +6,7 @@ package docs.processor
 
 import scala.xml._
 import scala.collection.mutable.ListBuffer
+import scala.util.control.Breaks._
 
 case class XmlValidator( xml: Node ) extends Validator {
 
@@ -56,6 +57,17 @@ case class XmlValidator( xml: Node ) extends Validator {
                 case Some(n: Node) =>
                     ancestors += n
                     node = n
+                    breakable {
+                        BindMap foreach { case (k, f) =>
+                            (n \ s"@$f").headOption match {
+                                case Some(obj: Node) =>
+                                    o.bind = Some(k)
+                                    o.bindName = Some(obj.text)
+                                    break()
+                                case None => ;
+                            }
+                        }
+                    }
             }
         }
 
@@ -67,4 +79,5 @@ case class XmlValidator( xml: Node ) extends Validator {
             case _ => Unknown
         }
     }
+
 }

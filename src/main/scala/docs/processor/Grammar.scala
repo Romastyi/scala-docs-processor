@@ -10,6 +10,8 @@ object Qualifier extends Enumeration {
     type Qualifier = Value
     val NoneQual, FORMAT, ROW, ROW_NUMBER, REPEAT, REPEAT_NUMBER = Value
     val Repeatable = Set(ROW, ROW_NUMBER, REPEAT, REPEAT_NUMBER)
+    val Table = Set(ROW, ROW_NUMBER)
+    var Repeat = Set(REPEAT, REPEAT_NUMBER)
     //
     val QualifierMap = immutable.HashMap(
         FORMAT -> "%.+",
