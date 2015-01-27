@@ -4,27 +4,40 @@ package docs.processor
  * Created by romastyi on 26/01/15.
  */
 
+import StringExtension._
+
 case class TextDocument ( var text: String ) extends Document {
 
     protected var findPos = -1
     protected var findStr = ""
-    protected var rowStartPos = -1
-    protected var rowFinishPos = -1
-    protected var rowText = ""
-    protected var lastRowPos = -1
+    protected var repeatStartPos = -1
+    protected var repeatFinishPos = -1
+    protected var repeatText = ""
+    protected var lastRepeatPos = -1
 
     override def plainText: String = text
 
-    override protected def clone(): Document = new TextDocument(this.text)
+    override protected def clone: Document = new TextDocument(this.text)
+
+    override def insertInCurrentPos( other: Document ) = {
+
+        if (lastRepeatPos >= 0) {
+            val str = other.plainText
+            val (left, right) = text.splitAt(lastRepeatPos)
+            text = left + str + right
+            findPos += str.length
+            lastRepeatPos = findPos
+        }
+    }
 
     override def first( str: String ): Boolean = {
 
         findStr = str
         findPos = 0
-        rowStartPos = -1
-        rowFinishPos = -1
-        rowText = ""
-        lastRowPos = -1
+        repeatStartPos = -1
+        repeatFinishPos = -1
+        repeatText = ""
+        lastRepeatPos = -1
         next()
     }
 
@@ -34,39 +47,63 @@ case class TextDocument ( var text: String ) extends Document {
         findPos >= 0
     }
 
-    override def findTableRow(): Boolean = {
+    override def replace( search: String, replace: String, matchCase: Boolean = false ) =
+        text = text.replaceAllSubstring(search, replace, matchCase)
+
+    override def findRepetition( start: String, finish: String, exactMatching: Boolean ): Boolean = {
 
         if (findPos >= 0) {
-            rowStartPos = text.lastIndexOf("\n", findPos) + 1
-            rowFinishPos = text.indexOf("\n", findPos)
-            if (rowFinishPos < 0) rowFinishPos = text.length - 1
-            rowText = text.substring(rowStartPos, rowFinishPos)
-            lastRowPos = rowFinishPos
+            // Case insensitive search of substring
+            repeatStartPos = text.toLowerCase.lastIndexOf(start.toLowerCase, findPos)
+            repeatFinishPos = text.toLowerCase.indexOf(finish.toLowerCase, findPos)
+            //
+            if (!exactMatching || (repeatStartPos > 0 && repeatFinishPos > 0)) {
+                if (repeatStartPos < 0) repeatStartPos = 0
+                if (repeatFinishPos < 0)
+                    repeatFinishPos = text.length - 1
+                else
+                    repeatFinishPos += finish.length
+                repeatText = text.substring(repeatStartPos, repeatFinishPos)
+                lastRepeatPos = repeatFinishPos
+            }
         }
-        rowStartPos >= 0 && rowFinishPos >= 0
+        repeatStartPos >= 0 && repeatFinishPos >= 0
     }
 
-    override def duplicateTableRow( row: Int ): Boolean = {
+    override def duplicateRepetition(): Document = {
 
-        if (lastRowPos >= 0) {
-            val num = row.toString + ") "
-            val (left, right) = text.splitAt(lastRowPos)
-            text = left + "\n" + num + rowText + right
-            lastRowPos += rowText.length + 1 + num.length
+        if (lastRepeatPos >= 0) {
+            findPos = lastRepeatPos
+            new TextDocument(repeatText)
+        } else {
+            new TextDocument("")
         }
-        rowStartPos >= 0 && rowFinishPos >= 0
     }
 
-    override def finalizeTable() = {
+    override def finalizeRepetition() = {
 
-        if (rowStartPos >= 0 && rowFinishPos >= 0) {
-            val (left, right) = text.splitAt(rowStartPos)
-            text = left + right.drop(rowFinishPos - rowStartPos + 1)
-            findPos = lastRowPos
+        if (repeatStartPos >= 0 && repeatFinishPos >= 0) {
+            val (left, right) = text.splitAt(repeatStartPos)
+            text = left + right.drop(repeatFinishPos - repeatStartPos)
+            findPos = lastRepeatPos
         }
-        rowStartPos = -1
-        rowFinishPos = -1
-        rowText = ""
-        lastRowPos = -1
+        repeatStartPos = -1
+        repeatFinishPos = -1
+        repeatText = ""
+        lastRepeatPos = -1
     }
+
+    override def findTableRow(): Boolean = {
+
+        if (findRepetition("\n", "\n", exactMatching = false)) {
+            if (repeatText.last == '\n') {
+                repeatFinishPos -= 1
+                repeatText = repeatText.drop(1)
+            }
+            true
+        } else {
+            false
+        }
+    }
+
 }

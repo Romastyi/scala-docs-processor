@@ -8,16 +8,18 @@ import scala.collection.immutable
 
 object Qualifier extends Enumeration {
     type Qualifier = Value
-    val NoneQual, FORMAT, ROW, ROW_NUMBER, REPEAT, REPEAT_NUMBER = Value
-    val Repeatable = Set(ROW, ROW_NUMBER, REPEAT, REPEAT_NUMBER)
+    val NoneQual, FORMAT, ROW, ROW_NUMBER, REPEAT_BEGIN, REPEAT_END, REPEAT_NUMBER = Value
+    val Repeatable = Set(ROW, ROW_NUMBER, REPEAT_BEGIN, REPEAT_END, REPEAT_NUMBER)
     val Table = Set(ROW, ROW_NUMBER)
-    var Repeat = Set(REPEAT, REPEAT_NUMBER)
+    var Repeat = Set(REPEAT_BEGIN, REPEAT_END, REPEAT_NUMBER)
+    val RepeatNumber = Set(ROW_NUMBER, REPEAT_NUMBER)
     //
     val QualifierMap = immutable.HashMap(
         FORMAT -> "%.+",
         ROW -> "row",
         ROW_NUMBER -> "row.number",
-        REPEAT -> "begin|end",
+        REPEAT_BEGIN -> "begin",
+        REPEAT_END -> "end",
         REPEAT_NUMBER -> "begin.number"
     )
 }

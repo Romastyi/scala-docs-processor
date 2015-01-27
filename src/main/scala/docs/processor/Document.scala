@@ -30,11 +30,14 @@ class Document {
         this
     }
 
+    def insertInCurrentPos( other: Document ) = {}
     def first( str: String ): Boolean = false
     def next(): Boolean = false
+    def replace(search: String, replace: String, matchCase: Boolean = false) = {}
 
     def findTableRow(): Boolean = false
-    def duplicateTableRow( row: Int ): Boolean = false
-    def finalizeTable() = {}
+    def findRepetition( start: String, finish: String, exactMatching: Boolean ): Boolean = false
+    def duplicateRepetition(): Document = new Document
+    def finalizeRepetition() = {}
 
 }

@@ -40,9 +40,9 @@ class GrammarSpec extends FlatSpec with Matchers {
         Grammar.validateQualifier("ROW.NUMBER ") shouldBe NoneQual
         Grammar.validateQualifier("ROWnumber") shouldBe NoneQual
         // REPEAT (BEGIN)
-        Grammar.validateQualifier("BEGIN") shouldBe REPEAT
-        Grammar.validateQualifier("begin") shouldBe REPEAT
-        Grammar.validateQualifier("bEGin") shouldBe REPEAT
+        Grammar.validateQualifier("BEGIN") shouldBe REPEAT_BEGIN
+        Grammar.validateQualifier("begin") shouldBe REPEAT_BEGIN
+        Grammar.validateQualifier("bEGin") shouldBe REPEAT_BEGIN
         Grammar.validateQualifier("BEGIN ") shouldBe NoneQual
         Grammar.validateQualifier(" BEGIN") shouldBe NoneQual
         Grammar.validateQualifier("BEGINqweq") shouldBe NoneQual
@@ -55,9 +55,9 @@ class GrammarSpec extends FlatSpec with Matchers {
         Grammar.validateQualifier("BEGIN.NUMBER ") shouldBe NoneQual
         Grammar.validateQualifier("BEGINnumber") shouldBe NoneQual
         // REPEAT (END)
-        Grammar.validateQualifier("END") shouldBe REPEAT
-        Grammar.validateQualifier("end") shouldBe REPEAT
-        Grammar.validateQualifier("End") shouldBe REPEAT
+        Grammar.validateQualifier("END") shouldBe REPEAT_END
+        Grammar.validateQualifier("end") shouldBe REPEAT_END
+        Grammar.validateQualifier("End") shouldBe REPEAT_END
         Grammar.validateQualifier("end ") shouldBe NoneQual
         Grammar.validateQualifier(" end") shouldBe NoneQual
         Grammar.validateQualifier("ENDqweq") shouldBe NoneQual

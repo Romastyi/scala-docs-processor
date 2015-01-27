@@ -10,12 +10,20 @@ import scala.util.control.Breaks._
 
 object XmlEvaluator {
 
-    implicit class EvaluateDocumentWithXmlModel( document: Document ) extends Evaluator {
+    implicit class EvaluateDocumentWithXmlModel( document: Document )
+                                               ( implicit syntax: Syntax, validator: Validator ) extends Evaluator {
 
-        import BindType._
+        protected var _model: Node = null
+        protected val _context: mutable.Map[String, Node] = new mutable.HashMap()
 
-        var _model: Node = null
-        val context: mutable.Map[String, Node] = new mutable.HashMap()
+        override protected def copy( other: Document ): Evaluator = {
+
+            val obj = new EvaluateDocumentWithXmlModel(document)
+            obj._doc = other
+            obj._model = this._model
+            obj._context ++= this._context
+            obj
+        }
 
         def evaluate( model: Node )( implicit syntax: Syntax, validator: Validator ): Document = {
 
@@ -48,20 +56,6 @@ object XmlEvaluator {
             opt
         }
 
-        protected def modelQueue( key: Keyword ): mutable.Queue[String] = {
-
-            val que = new mutable.Queue[String]()
-            key.parsed.filter( _.bind == Some(ModelBind) ) foreach { o => que.enqueue(o.bindName) }
-            que
-        }
-
-        protected def modelName( que: mutable.Queue[String] ): String = {
-
-            var name = ""
-            que foreach { s => name += (if (name.nonEmpty) "." else "") + s }
-            name
-        }
-
         protected def nearestModel( key: Keyword, after: Option[Node] = None ): Option[Node] = {
 
             val que = modelQueue(key)
@@ -71,15 +65,15 @@ object XmlEvaluator {
             while (que.nonEmpty) {
 
                 val s = que.dequeue()
-                str += (if (str.nonEmpty) "." else "") + s
-                context find { e => e._1 == str } headOption match {
+                str += (if (str.nonEmpty) separator else "") + s
+                _context find { e => e._1 == str } headOption match {
                     case None =>
                         findModel(node, s, after) match {
                             case None =>
                                 return None
-//                                throw new EvaluatorErrorException(s"Could not found model by name '$str'.")
+                                //throw new EvaluatorErrorException(s"Could not found model by name '$str'.")
                             case Some(n: Node) =>
-                                context += str -> n
+                                _context += str -> n
                                 node = n
                         }
                     case Some(n: (String, Node)) => node = n._2
@@ -91,15 +85,38 @@ object XmlEvaluator {
 
         protected def firstModel( key: Keyword ): Boolean = {
 
-            val name = modelName(modelQueue(key))
-            context.remove(name)
+            removeModel(key)
             nearestModel(key).isDefined
         }
 
         protected def nextModel( key: Keyword ): Boolean = {
 
-            val name = modelName(modelQueue(key))
-            nearestModel(key, context.remove(name)).isDefined
+            nearestModel(key, removeModel(key)).isDefined
+        }
+
+        protected def cleanModel( key: Keyword ): Boolean = {
+
+            removeModel(key).isDefined
+        }
+
+        protected def removeModel( key: Keyword ): Option[Node] = {
+
+            val name = modelPath(modelQueue(key))
+            _context.keys.filter( _.indexOf(name + separator) == 0 ) foreach { k => _context.remove(k) }
+            _context.remove(name)
+        }
+
+        protected def getValue( key: Keyword ): Option[Any] = {
+
+            nearestModel(key) match {
+                case None => None
+                case Some(n: Node) =>
+                    val field = key.parsed.last.bindName
+                    (n descendant_or_self) find { c => c.label == field } headOption match {
+                        case None => None
+                        case Some(c: Node) => Some(c.text)
+                    }
+            }
         }
 
     }

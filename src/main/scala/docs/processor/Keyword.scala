@@ -34,6 +34,13 @@ class ParsedQueue extends mutable.Queue[Operation]
 case class Keyword( text: String = "", t: KeywordType = Unknown,
                     qual: Qualifier = NoneQual, format: String = "", stat: Statistics = NoneStat,
                     parsed: ParsedQueue = new ParsedQueue(),
-                    var value: Any = None, var evaluated: Boolean = false )
+                    var value: Option[Any] = None, var evaluated: Boolean = false )
 
-class KeywordsMap extends mutable.HashMap[String, Keyword]
+class KeywordsMap extends mutable.HashMap[String, Keyword] {
+
+    def foreach( p: (String, Keyword) => Boolean, f: (String, Keyword) => Any ) = {
+
+        this.filter(e => p(e._1, e._2)) foreach { e => f(e._1, e._2) }
+    }
+
+}

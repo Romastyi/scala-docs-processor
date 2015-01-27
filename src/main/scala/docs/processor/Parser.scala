@@ -81,6 +81,7 @@ object Parser {
         var text = ""
 
         def enqueue( str: String ) = {
+
             if (str.isEmpty)
                 throw new IllegalExpressionException(s"Keyword cannot contain empty parts ($keyword).")
             if (que.nonEmpty) text += syntax.separator
@@ -142,6 +143,8 @@ object Parser {
                         s"($keyword)")
                 new Keyword(text, Group, qual, fmt, stat, que)
             case t: KeywordType =>
+                if (Repeatable.contains(qual))
+                    throw new IllegalExpressionException(s"Repeat qualifier can contain only group keyword ($keyword).")
                 new Keyword(text, t, qual, fmt, stat, que)
         }
     }
@@ -149,6 +152,7 @@ object Parser {
     protected def parseExpression( text: String )( implicit syntax: Syntax, validator: Validator ): Keyword = {
 
         val que = new ParsedQueue()
+        var txt = text
         var typ: KeywordType = Unknown
         var qlf: Qualifier = NoneQual
         var fmt: String = ""
@@ -215,6 +219,7 @@ object Parser {
                     throw new IllegalExpressionException(s"Unknown keyword '$expr'.")
                 if (level == 0) {
                     que.enqueue(k.parsed: _*)
+                    txt = k.text
                     typ = k.t
                     fmt = k.format
                     qlf = k.qual
@@ -348,6 +353,6 @@ object Parser {
 
         procExpr(text, new mutable.Stack())
         if (typ == Formula) fakeEval(que)
-        new Keyword(text, typ, qlf, fmt, stt, que)
+        new Keyword(txt, typ, qlf, fmt, stt, que)
     }
 }
