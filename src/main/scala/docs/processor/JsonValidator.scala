@@ -47,7 +47,7 @@ case class JsonValidator( json: JsValue ) extends Validator {
                     }
 
                     if (v.asOpt[JsArray].isDefined) {
-                        v.as[JsArray].value foreach { check(_) }
+                        v.as[JsArray].value foreach { check }
                     } else {
                         check(v)
                     }
@@ -63,7 +63,7 @@ case class JsonValidator( json: JsValue ) extends Validator {
                 case q if Repeatable.contains(q) =>
                     val msg = s"Keyword '${keyword.text}' cannot contain any repeat qualifier " +
                         s"(${Repeatable.mkString(", ")})."
-                    (obj :: Nil ++ ancestors.reverse) filter { o => (o \ "repeatable").asOpt[String].isDefined } headOption match {
+                    (obj :: Nil ++ ancestors.reverse).find(o => (o \ "repeatable").asOpt[String].isDefined) match {
                         case None =>
                             throw new ValidationErrorException(msg)
                         case Some(o: JsValue) =>
@@ -79,15 +79,18 @@ case class JsonValidator( json: JsValue ) extends Validator {
 
         keyword.parsed foreach { o =>
 
-            if (o.item != KeywordItem)
-                throw new ValidationErrorException(s"Keyword can contain only $KeywordItem (found: ${o.item}).")
+            if (o.item != FunctionItem) {
+                //
+                if (o.item != KeywordItem)
+                    throw new ValidationErrorException(s"Keyword can contain only $KeywordItem (found: ${o.item}).")
 
-            findJsValue(obj._2, "group" :: "word" :: Nil, o.text) match {
-                case None => ;
-                    throw new ValidationErrorException(s"Could not find object with field 'name' == '${o.text}'.")
-                case Some(n: (String, JsValue)) =>
-                    ancestors += n._2
-                    obj = n
+                findJsValue(obj._2, "group" :: "word" :: Nil, o.text) match {
+                    case None => ;
+                        throw new ValidationErrorException(s"Could not find object with field 'name' == '${o.text}'.")
+                    case Some(n: (String, JsValue)) =>
+                        ancestors += n._2
+                        obj = n
+                }
             }
         }
 

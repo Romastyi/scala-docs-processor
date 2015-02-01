@@ -26,7 +26,7 @@ case class XmlValidator( xml: Node ) extends Validator {
                 case q if Repeatable.contains(q) =>
                     val msg = s"Keyword '${keyword.text}' cannot contain any repeat qualifier " +
                         s"(${Repeatable.mkString(", ")})."
-                    (node.theSeq ++ ancestors.reverse) filter { _.attribute("repeatable").isDefined } headOption match {
+                    (node.theSeq ++ ancestors.reverse).find(_.attribute("repeatable").isDefined) match {
                         case None =>
                             throw new ValidationErrorException(msg)
                         case Some(n: Node) =>
@@ -40,7 +40,7 @@ case class XmlValidator( xml: Node ) extends Validator {
         var node: Node = null
         var ancestors = new ListBuffer[Node]()
 
-        (xml descendant_or_self) find { _.label == "keywords" } match {
+        (xml descendant_or_self).find(_.label == "keywords") match {
             case None =>
                 throw new ValidationErrorException("Could not find root node.")
             case Some(n: Node) => node = n
@@ -48,26 +48,29 @@ case class XmlValidator( xml: Node ) extends Validator {
 
         keyword.parsed foreach { o =>
 
-            if (o.item != KeywordItem)
-                throw new ValidationErrorException(s"Keyword can contain only $KeywordItem (found: ${o.item}).")
+            if (o.item != FunctionItem) {
+                // Some keyword element
+                if (o.item != KeywordItem)
+                    throw new ValidationErrorException(s"Keyword cannot contain ${o.item}.")
 
-            (node child) find { n => (n \ "@name").text == o.text } match {
-                case None =>
-                    throw new ValidationErrorException(s"Could not find node with attribute 'name' == '${o.text}'.")
-                case Some(n: Node) =>
-                    ancestors += n
-                    node = n
-                    breakable {
-                        BindMap foreach { case (k, f) =>
-                            (n \ s"@$f").headOption match {
-                                case Some(obj: Node) =>
-                                    o.bind = Some(k)
-                                    o.bindName = obj.text
-                                    break()
-                                case None => ;
+                (node child).find(n => (n \ "@name").text == o.text) match {
+                    case None =>
+                        throw new ValidationErrorException(s"Could not find node with attribute 'name' == '${o.text}'.")
+                    case Some(n: Node) =>
+                        ancestors += n
+                        node = n
+                        breakable {
+                            BindMap foreach { case (k, f) =>
+                                (n \ s"@$f").headOption match {
+                                    case Some(obj: Node) =>
+                                        o.bind = Some(k)
+                                        o.bindName = obj.text
+                                        break()
+                                    case None => ;
+                                }
                             }
                         }
-                    }
+                }
             }
         }
 

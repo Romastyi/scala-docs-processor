@@ -11,7 +11,7 @@ object KeywordType extends Enumeration {
 
 object OperationItem extends Enumeration {
     type OperationItem = Value
-    val KeywordItem, NumberItem, OperatorItem = Value
+    val KeywordItem, NumberItem, OperatorItem, FunctionItem = Value
 }
 
 object BindType extends Enumeration {
@@ -37,6 +37,12 @@ case class Keyword( text: String = "", t: KeywordType = Unknown,
                     var value: Option[Any] = None, var evaluated: Boolean = false )
 
 class KeywordsMap extends mutable.HashMap[String, Keyword] {
+
+    override def clone(): KeywordsMap = {
+        val m = new KeywordsMap()
+        this foreach { case(k, e) => m += k -> e.copy() }
+        m
+    }
 
     def foreach( p: (String, Keyword) => Boolean, f: (String, Keyword) => Any ) = {
 

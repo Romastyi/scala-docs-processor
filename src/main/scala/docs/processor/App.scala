@@ -72,34 +72,34 @@ object App {
 //              |]""".stripMargin
 //        )
 
-//        val xmlModel =
-//            <model>
-//                <client>
-//                    <name>Вася</name>
-//                    <surname>Пупкин</surname>
-//                    <good>
-//                        <name>Хлебушек</name>
-//                        <description>Хлеб черный</description>
-//                        <quantity>2</quantity>
-//                        <dimension>ломоть</dimension>
-//                    </good>
-//                    <good>
-//                        <name>Маслице</name>
-//                        <description>Масло сливочное</description>
-//                        <quantity>100</quantity>
-//                        <dimension>гр.</dimension>
-//                    </good>
-//                    <good>
-//                        <name>Сальцо</name>
-//                        <description>Сало свиное, копченое</description>
-//                        <quantity>4</quantity>
-//                        <dimension>шмат</dimension>
-//                    </good>
-//                </client>
-//                <company>
-//                    <name>Бабуся</name>
-//                </company>
-//            </model>
+        val xmlModel =
+            <model>
+                <client>
+                    <name>Вася</name>
+                    <surname>Пупкин</surname>
+                    <good>
+                        <name>Хлебушек</name>
+                        <description>Хлеб черный</description>
+                        <quantity>2</quantity>
+                        <dimension>ломоть</dimension>
+                    </good>
+                    <good>
+                        <name>Маслице</name>
+                        <description>Масло сливочное</description>
+                        <quantity>100</quantity>
+                        <dimension>гр.</dimension>
+                    </good>
+                    <good>
+                        <name>Сальцо</name>
+                        <description>Сало свиное, копченое</description>
+                        <quantity>4</quantity>
+                        <dimension>шмат</dimension>
+                    </good>
+                </client>
+                <company>
+                    <name>Бабуся</name>
+                </company>
+            </model>
 
         implicit val goodFormat = Json.format[Good]
         implicit val clientFormat = Json.format[Client]
@@ -117,7 +117,7 @@ object App {
         import XmlEvaluator._
         import JsonEvaluator._
 
-//        println(document.evaluate(xmlModel).plainText)
+        println(document.evaluate(xmlModel).plainText)
         println("-----------------------------------------------------")
         println(document.evaluate(jsonModel).plainText)
     }

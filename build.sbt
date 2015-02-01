@@ -18,3 +18,4 @@ libraryDependencies += "com.typesafe.play" %% "play-json" % "2.3.4"
 // Uncomment to use Akka
 //libraryDependencies += "com.typesafe.akka" % "akka-actor_2.11" % "2.3.3"
 
+scalacOptions += Seq("-feature")

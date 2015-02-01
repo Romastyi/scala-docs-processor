@@ -11,50 +11,31 @@ case class IllegalExpressionException( msg: String ) extends RuntimeException(s"
 
 object Parser {
 
-    import KeywordType._
-    import OperationItem._
-    import Operator._
-    import Qualifier._
-    import Statistics._
+    import docs.processor.KeywordType._
+    import docs.processor.OperationItem._
+    import docs.processor.Qualifier._
+    import docs.processor.Statistics._
+    import docs.processor.Functions._
 
-    class Pos[T]( var value: T )
-    val PosNotFound = 0
-    val PosStarted = 1
-    val PosFinished = 2
     // Convert string to number (Int or Double)
     case class ParseOp[T](op: String => T)
     implicit val popDouble = ParseOp[Double](_.toDouble)
     implicit val popInt = ParseOp[Int](_.toInt)
     def parseAny[T: ParseOp](s: String) = try { Some(implicitly[ParseOp[T]].op(s)) } catch { case _: Throwable => None }
 
-    def checkSymbol(c: Char, str: String, pos: Pos[Int] = new Pos(0)): Int = {
-
-        if (pos.value == str.length) pos.value = 0
-        if (str.charAt(pos.value) == c) {
-            pos.value += 1
-            if (pos.value == str.length)
-                PosFinished
-            else
-                PosStarted
-        } else {
-            pos.value = 0
-            PosNotFound
-        }
-    }
-
     def parse( text: String )( implicit syntax: Syntax, validator: Validator ): KeywordsMap = {
 
         val keywords = new KeywordsMap()
         val startPoses: mutable.Stack[Int] = new mutable.Stack()
-        val inStartPos = new Pos(0)
-        val inFinishPos = new Pos(0)
+        val inStartPos = new Grammar.Pos(0)
+        val inFinishPos = new Grammar.Pos(0)
 
         text.zipWithIndex foreach { case (c, i) =>
             // Parsing
-            if (checkSymbol(c, syntax.start, inStartPos) == PosFinished) {
+            if (Grammar.checkSymbolPos(c, syntax.start, inStartPos) == Grammar.PosFinished) {
                 // Start of keyword is detected
                 startPoses.push(i - syntax.start.length + 1)
-            } else if (checkSymbol(c, syntax.finish, inFinishPos) == PosFinished && startPoses.nonEmpty) {
+            } else if (Grammar.checkSymbolPos(c, syntax.finish, inFinishPos) == Grammar.PosFinished && startPoses.nonEmpty) {
                 // Finish of keyword is detected
                 val keyword = text.substring(startPoses.pop(), i + 1)
                 try {
@@ -77,16 +58,16 @@ object Parser {
             throw new IllegalExpressionException(keyword)
         }
 
-        val que = new ParsedQueue()
+        val stack = new mutable.Stack[Operation]()
         var text = ""
 
-        def enqueue( str: String ) = {
+        def enqueue( str: String, item: OperationItem ) = {
 
             if (str.isEmpty)
                 throw new IllegalExpressionException(s"Keyword cannot contain empty parts ($keyword).")
-            if (que.nonEmpty) text += syntax.separator
+            if (stack.nonEmpty) text += syntax.separator
             text += str
-            que.enqueue(new Operation(str, KeywordItem))
+            stack.push(new Operation(str, item))
         }
 
         var kwrd = keyword.drop(syntax.start.length).dropRight(syntax.finish.length)
@@ -116,21 +97,35 @@ object Parser {
         }
 
         // Parse keyword on parts
-        var pos = kwrd.indexOf(syntax.separator)
+        i = 0
+        var pos = kwrd.lastIndexOf(syntax.separator)
+        var keywordStarted = false
         while (pos >= 0) {
-            val part = kwrd.substring(0, pos)
-            if (part.lastIndexOf(syntax.qualifier) >= 0)
-                throw new IllegalExpressionException(s"Qualifier can be only at the end of keyword ($keyword).")
-            enqueue(part)
-            kwrd = kwrd.drop(pos + syntax.separator.length)
-            pos = kwrd.indexOf(syntax.separator)
+            val part = kwrd.substring(pos + syntax.separator.length)
+            Grammar.validateStatistics(part) match {
+                case NoneStat =>
+                    Grammar.validateFunction(part) match {
+                        case NoneFunc =>
+                            enqueue(part, KeywordItem)
+                            keywordStarted = true
+                        case f: Functions =>
+                            if (keywordStarted)
+                                throw new IllegalExpressionException(s"Function '$part' cannot be inside keyword ($keyword).")
+                            enqueue(part, FunctionItem)
+                    }
+                case s: Statistics =>
+                    if (i > 0 && keywordStarted)
+                        throw new IllegalExpressionException(s"Statistics function '$part' cannot be inside keyword ($keyword).")
+                    stat = s
+            }
+            kwrd = kwrd.dropRight(kwrd.length - pos)
+            pos = kwrd.lastIndexOf(syntax.separator)
+            i += 1
         }
+        enqueue(kwrd, KeywordItem)
 
-        Grammar.validateStatistics(kwrd) match {
-            case NoneStat => enqueue(kwrd)
-            case s: Statistics => stat = s
-        }
-
+        val que = new ParsedQueue()
+        que.enqueue(stack: _*)
         Grammar.validateKeyword(new Keyword(text, Keyword, qual, fmt, stat, que)) match {
             case Unknown =>
                 throw new IllegalExpressionException(s"Unknown keyword ($keyword).")
@@ -167,8 +162,8 @@ object Parser {
 
             val text = expr.drop(syntax.start.length).dropRight(syntax.finish.length)
             val startPoses: mutable.Stack[Int] = new mutable.Stack()
-            val inStartPos = new Pos(0)
-            val inFinishPos = new Pos(0)
+            val inStartPos = new Grammar.Pos(0)
+            val inFinishPos = new Grammar.Pos(0)
             var op = ""
             var t: KeywordType = Unknown
             var l = level
@@ -176,7 +171,7 @@ object Parser {
             // Iterate through expression and find inner keywords or expressions
             text.zipWithIndex foreach { case (c, i) =>
 
-                if (checkSymbol(c, syntax.start, inStartPos) == PosFinished) {
+                if (Grammar.checkSymbolPos(c, syntax.start, inStartPos) == Grammar.PosFinished) {
                     // Start of keyword is detected
                     startPoses.push(i - syntax.start.length + 1)
                     // Process operations before keyword
@@ -184,7 +179,7 @@ object Parser {
                     l += 1
                     // Null operations
                     op = ""
-                } else if (checkSymbol(c, syntax.finish, inFinishPos) == PosFinished) {
+                } else if (Grammar.checkSymbolPos(c, syntax.finish, inFinishPos) == Grammar.PosFinished) {
                     if (startPoses.isEmpty)
                         throw new IllegalExpressionException(expr)
                     // Finish of keyword is detected
@@ -238,90 +233,118 @@ object Parser {
         def procOper( oper: String, operStack: mutable.Stack[Operation], level: Int = 0, withoutFormat: Boolean = false )
                     ( implicit syntax: Syntax )= {
 
-            var num = ""
-
             def enqueue( text: String, item: OperationItem ) = { if (level == 0) que.enqueue(new Operation(text, item)) }
 
-            def validateNumber() = {
-                if (num.nonEmpty) {
-                    parseAny[Double](num) match {
-                        case None =>
-                            throw new NumberFormatException(s"Not valid number '$num' in expression '$oper'.")
-                        case Some(d: Double) =>
-                            enqueue(num, NumberItem)
+            var identifier = ""
+            var operator = ""
+
+            def validateIdentifier() = {
+
+                if (identifier.trim.nonEmpty) {
+
+                    if (identifier.charAt(0).isDigit) {
+                        // it's a number
+                        identifier = identifier.replaceFirst("\\.|\\,",
+                            s"${java.text.DecimalFormatSymbols.getInstance.getDecimalSeparator}")
+                        parseAny[Double](identifier) match {
+                            case None =>
+                                throw new NumberFormatException(s"Not valid number '$identifier' in expression '$oper'.")
+                            case Some(d: Double) =>
+                                enqueue(identifier, NumberItem)
+                        }
+                    } else {
+                        // it's a identifier
+                        if (Grammar.validateFunction(identifier) == NoneFunc)
+                            throw new IllegalExpressionException("")
+                        operStack.push(new Operation(identifier, FunctionItem))
                     }
                 }
-                num = ""
+                operator = ""
+                identifier = ""
             }
 
-            val qualPos = new Pos(0)
+            val operPos = new Grammar.Pos(0)
+            val qualPos = new Grammar.Pos(0)
 
             breakable {
 
                 oper.zipWithIndex foreach { case (c, i) =>
 
-                    if (c.isDigit) {
-                        num += c
-                    } else if ((c.equals('.') || c.equals(',')) && num.nonEmpty) {
-                        num += java.text.DecimalFormatSymbols.getInstance.getDecimalSeparator
-                    } else {
-                        validateNumber()
-                        if (c.isSpaceChar) {
-                            // continue
-                        } else if (c == '(') {
-                            operStack.push(new Operation("(", OperatorItem))
-                        } else if (c == ')') {
-                            var o = ""
-                            while (o != "(" && operStack.nonEmpty) {
-                                val obj = operStack.pop()
-                                o = obj.text
-                                if (o != "(") enqueue(o, obj.item)
-                            }
-                            if (o != "(")
-                                throw new IllegalExpressionException(s"Missing '(' in expression '$oper' (pos: $i).")
-                        } else if (Grammar.validateOperator(s"$c") != NoneOper) {
-                            val desc = Grammar.operatorDescription(s"$c")
-                            breakable {
-                                while (operStack.nonEmpty) {
-                                    val o = operStack.head.text
-                                    if (desc.priority <= Grammar.operatorDescription(o).priority && o != "(") {
-                                        val obj = operStack.pop()
-                                        enqueue(obj.text, obj.item)
-                                    } else
-                                        break()
+                    var p = 0
+                    if (c.isSpaceChar) {
+                        // any space char
+                        validateIdentifier()
+                    } else if ({ p = Grammar.checkOperatorPos(c, operator, operPos); p }!= Grammar.PosNotFound) {
+                        // operator
+                        p match {
+                            case Grammar.PosStarted => operator += c
+                            case Grammar.PosFinished =>
+                                val op = operator + c
+                                validateIdentifier()
+                                val desc = Grammar.operatorDescription(op)
+                                breakable {
+                                    while (operStack.nonEmpty) {
+                                        val o = operStack.head.text
+                                        if (desc.priority <= Grammar.operatorDescription(o).priority && o != "(") {
+                                            val obj = operStack.pop()
+                                            enqueue(obj.text, obj.item)
+                                        } else
+                                            break()
+                                    }
                                 }
-                            }
-                            operStack.push(new Operation(s"$c", OperatorItem))
-                        } else {
-                            if (checkSymbol(c, syntax.qualifier, qualPos) == PosNotFound)
-                                throw new IllegalExpressionException(s"Unknown symbol in expression '$oper' (pos: $i).")
-                            validateNumber()
-                            val s = oper.substring(i + 1).trim
-                            if (s.isEmpty)
-                                throw new IllegalExpressionException(s"Empty qualifier in expression '$oper' (pos: $i).")
-                            if (s.contains(syntax.qualifier))
-                                throw new IllegalExpressionException(s"Expression can contain only one qualifier ($oper) " +
-                                    s"(pos: $i).")
-                            qlf = Grammar.validateQualifier(s)
-                            qlf match {
-                                case NoneQual =>
-                                    throw new IllegalExpressionException(s"Unknown qualifier '$s' in expression '$oper' " +
-                                        s"(pos: $i).")
-                                case q if Repeatable.contains(q) =>
-                                    throw new IllegalExpressionException(s"Expression cannot contains repeat qualifier " +
-                                        s"($oper) (pos: $i).")
-                                case FORMAT => if (withoutFormat)
-                                    throw new IllegalExpressionException(s"Expression cannot contains qualifier ($oper) " +
-                                        s"(pos: $i).")
-                            }
-                            fmt = s
-                            break()
+                                operStack.push(new Operation(op, OperatorItem))
                         }
+                    } else if (Grammar.checkSymbolPos(c, syntax.qualifier, qualPos) == Grammar.PosFinished) {
+                        // qualifier
+                        identifier = identifier.dropRight(syntax.qualifier.length)
+                        validateIdentifier()
+                        val s = oper.substring(i + 1)
+                        if (s.isEmpty)
+                            throw new IllegalExpressionException(s"Empty qualifier in expression '$oper' (pos: $i).")
+                        if (s.contains(syntax.qualifier))
+                            throw new IllegalExpressionException(s"Expression can contain only one qualifier ($oper) " +
+                                s"(pos: $i).")
+                        qlf = Grammar.validateQualifier(s)
+                        qlf match {
+                            case NoneQual =>
+                                throw new IllegalExpressionException(s"Unknown qualifier '$s' in expression '$oper' " +
+                                    s"(pos: $i).")
+                            case q if Repeatable.contains(q) =>
+                                throw new IllegalExpressionException(s"Expression cannot contains repeat qualifier " +
+                                    s"($oper) (pos: $i).")
+                            case FORMAT => if (withoutFormat)
+                                throw new IllegalExpressionException(s"Expression cannot contains qualifier ($oper) " +
+                                    s"(pos: $i).")
+                        }
+                        fmt = s
+                        break()
+                    } else if (c == '(') {
+                        // open bracket
+                        validateIdentifier()
+                        operStack.push(new Operation("(", OperatorItem))
+                    } else if (c == ')') {
+                        // close bracket
+                        validateIdentifier()
+                        var o = ""
+                        while (o != "(" && operStack.nonEmpty) {
+                            val obj = operStack.pop()
+                            o = obj.text
+                            if (o != "(") enqueue(o, obj.item)
+                        }
+                        if (o != "(")
+                            throw new IllegalExpressionException(s"Missing '(' in expression '$oper' (pos: $i).")
+                        if (operStack.nonEmpty && operStack.head.item == FunctionItem) {
+                            val obj = operStack.pop()
+                            enqueue(obj.text, obj.item)
+                        }
+                    } else {
+                        // any other character
+                        identifier += c
                     }
                 }
             }
 
-            validateNumber()
+            validateIdentifier()
         }
 
         // Checks if parsed queue is right
@@ -335,11 +358,16 @@ object Parser {
 
                     op.item match {
                         case KeywordItem | NumberItem => operands += 1
-                        case OperatorItem =>
+                        case OperatorItem | FunctionItem =>
                             val o = op.text
-                            val c = Grammar.operatorDescription(o).operands
+                            var c = 1
+                            var t = "function"
+                            if (op.item == OperatorItem) {
+                                c = Grammar.operatorDescription(o).operands
+                                t = "operator"
+                            }
                             if (operands < c)
-                                throw new IllegalExpressionException(s"Wrong operands number for operator '$o' (need: $c, found: $operands).")
+                                throw new IllegalExpressionException(s"Wrong operands number for $c '$o' (need: $c, found: $operands).")
                             operands -= c - 1
                     }
                 }

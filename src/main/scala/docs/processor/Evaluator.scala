@@ -11,8 +11,10 @@ case class EvaluatorErrorException( msg: String ) extends RuntimeException(s"Eva
 abstract class Evaluator( implicit syntax: Syntax, validator: Validator ) {
 
     import KeywordType._
+    import OperationItem._
     import Qualifier._
     import BindType._
+    import Operator._
 
     protected var _doc: Document = null
     protected val separator = "\\"
@@ -21,8 +23,8 @@ abstract class Evaluator( implicit syntax: Syntax, validator: Validator ) {
 
     protected def evaluate( document: Document ): Document = {
 
+        document.parse
         if (_doc == null) _doc = document.copy()
-        if (!_doc.parsed) _doc.parse
 
         _doc.keywords.foreach( (text, key) => Table.contains(key.qual) , fillRepeat )
         _doc.keywords.foreach( (text, key) => Repeat.contains(key.qual), fillRepeat )
@@ -93,6 +95,38 @@ abstract class Evaluator( implicit syntax: Syntax, validator: Validator ) {
     // Evaluates all formulas
     protected def fillFormula( text: String, key: Keyword ) = {
 
+        if (key.parsed.nonEmpty) {
+
+            val stack = new mutable.Stack[Double]()
+
+            key.parsed foreach { op =>
+
+                op.item match {
+                    case NumberItem =>
+                        stack.push(op.text.toDouble)
+                    case KeywordItem =>
+                        if (!_doc.keywords.contains(op.text)) {
+                            _doc.keywords ++= evaluate(new TextDocument(op.text)).keywords
+                        } else {
+                            val k = _doc.keywords.get(op.text).get
+
+                        }
+                        stack.push(_doc.keywords.get(op.text).get.value.toString.toDouble)
+                    case OperatorItem =>
+                        val o = op.text
+                        val c = Grammar.operatorDescription(o).operands
+                        if (stack.size < c)
+                            throw new EvaluatorErrorException(s"Wrong operands number for operator '$o' " +
+                                s"(need: $c, found: ${stack.size}).")
+                        stack.push(evalOperation(Grammar.validateOperator(o), stack.take(c).toList))
+                }
+            }
+
+            if (stack.size > 1)
+                throw new IllegalExpressionException("There is too many operands in expression.")
+            key.value = Some(stack.pop())
+        }
+        key.evaluated = true
     }
 
     // Evaluates all simple keywords
@@ -119,5 +153,11 @@ abstract class Evaluator( implicit syntax: Syntax, validator: Validator ) {
     protected def modelPath( que: mutable.Queue[String] ): String = que.mkString(separator)
 
     protected def getValue( key: Keyword ): Option[Any]
+
+    protected def evalOperation( operator: Operator, args: List[Double] ): Double = {
+
+        0
+    }
+
 }
 

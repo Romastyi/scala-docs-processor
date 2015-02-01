@@ -11,7 +11,7 @@ class Document {
 
     def copy(): Document = {
         val obj: Document = this.clone()
-        obj._keywords = this._keywords
+        obj._keywords = this._keywords.clone()
         obj._parsed = this._parsed
         obj
     }
@@ -25,8 +25,10 @@ class Document {
 
     def parse( implicit syntax: Syntax, validator: Validator ): Document = {
 
-        _keywords = Parser.parse(plainText)
-        _parsed = true
+        if (!_parsed) {
+            _keywords = Parser.parse(plainText)
+            _parsed = true
+        }
         this
     }
 
